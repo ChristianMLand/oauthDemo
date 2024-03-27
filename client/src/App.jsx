@@ -1,14 +1,16 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Home from './views/Home';
-import Dashboard from './views/Dashboard';
+import { Home, Dashboard } from '~/views';
+import { AuthContext } from './components/AuthContext';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="/dashboard" element={<Dashboard />}/>
-    </Routes>
+    <AuthContext>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/dashboard" element={<Dashboard />}/>
+      </Routes>
+    </AuthContext>
   )
 }
 
