@@ -6,8 +6,7 @@ const UserSchema = new Schema({
         required: [true, "Username is required"],
         minLength: [3, "Username must be at least 3 characters long"]
     },
-    googleId: String,
-    githubId: String
+    oauthId: String,
 }, { timestamps: true });
 
 const User = model("User", UserSchema); 

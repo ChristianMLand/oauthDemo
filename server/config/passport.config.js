@@ -12,8 +12,8 @@ passport.use(new GoogleStrategy(
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: "/api/auth/google"
     }, async function verify(accessToken, refreshToken, profile, cb) {
-        let user = await User.findOne({ googleId: profile.id });
-        user ??= await User.create({ googleId: profile.id, username: profile.displayName });
+        let user = await User.findOne({ oauthId: profile.id });
+        user ??= await User.create({ oauthId: profile.id, username: profile.displayName });
         return cb(null, user);
     }
 ));
@@ -24,8 +24,8 @@ passport.use(new GithubStrategy(
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
         callbackURL: "/api/auth/github"
     }, async function verify(accessToken, refreshToken, profile, cb) {
-        let user = await User.findOne({ githubId: profile.id });
-        user ??= await User.create({ githubId: profile.id, username: profile.displayName });
+        let user = await User.findOne({ oauthId: profile.id });
+        user ??= await User.create({ oauthId: profile.id, username: profile.displayName });
         return cb(null, user);
     }
 ));
