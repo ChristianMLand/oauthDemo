@@ -6,8 +6,7 @@ export default function Home() {
     if (!user) return <h1>Loading...</h1>;
 
     return (
-        <main>
-            <h1>Dashboard Test</h1>
+        <main className="container">
             <h2>Welcome, {user.username}</h2>
             <button onClick={logout}>Logout</button>
         </main>
