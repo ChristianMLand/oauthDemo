@@ -11,7 +11,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}/>
       </Routes>
     </AuthContext>
-  )
+  );
 }
 
-export default App
+export default App;
